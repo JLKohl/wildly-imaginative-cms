@@ -1,0 +1,43 @@
+
+
+
+###
+
+POST http://localhost:3000/characters
+Content-Type: application/json
+
+{
+  "name": "Daisy Mae",
+  "age": 7,
+  "eyeColor": "Brown",
+  "hairColor": "Brown",
+  "occupation": "Explorer",
+  "imageUrl": "images/daisy.png",
+  "description": "An imaginative little girl who believes anything is possible."
+}
+
+###
+
+GET http://localhost:3000/characters
+
+###
+
+PUT http://localhost:3000/characters/6a513e74cee48a908f1222f9
+Content-Type: application/json
+
+    {
+    "name": "Daisy Mae",
+    "age": 8,
+    "eyeColor": "Blue",
+    "hairColor": "Brown",
+    "occupation": "Explorer",
+    "imageUrl": "images/daisy.png",
+    "description": "Updated description!"
+    }
+
+###
+DELETE http://localhost:3000/characters/6a513e74cee48a908f1222f9
+
+###
+
+GET http://localhost:3000/characters

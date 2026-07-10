@@ -11,7 +11,6 @@ var mongoose = require('mongoose');
 var index = require('./server/routes/app');
 const characterRoutes = require('./server/routes/characters');
 
-
 var app = express(); // create an instance of express
 
 // Tell express to use the following parsers for POST data
