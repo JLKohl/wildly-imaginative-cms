@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CharacterList } from './characters/character-list/character-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    CharacterList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

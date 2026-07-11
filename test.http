@@ -7,13 +7,13 @@ POST http://localhost:3000/characters
 Content-Type: application/json
 
 {
-  "name": "Daisy Mae",
-  "age": 7,
-  "eyeColor": "Brown",
-  "hairColor": "Brown",
-  "occupation": "Explorer",
+  "name": "Drakit",
+  "age": 0,
+  "eyeColor": "Blue",
+  "hairColor": "Pink",
+  "occupation": "Mischif Maker",
   "imageUrl": "images/daisy.png",
-  "description": "An imaginative little girl who believes anything is possible."
+  "description": "Daisy Maes best firend and instructor of imaginative chaos."
 }
 
 ###
