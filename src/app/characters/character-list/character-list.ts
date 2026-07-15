@@ -10,23 +10,19 @@ import { CharacterService } from '../../services/character.service';
   templateUrl: './character-list.html',
   styleUrl: './character-list.css',
 })
-export class CharacterList {
+export class CharacterList implements OnInit {
 
   characters: Character[] = [];
+  loading = true;
 
   constructor(private characterService: CharacterService) { }
-
-  // ngOnInit(): void {
-  //   this.characterService.getCharacters().subscribe((data: Character[]) => {
-  //     this.characters = data;
-  //   });
-  // }
 
   ngOnInit(): void {
     this.characterService.getCharacters()
       .subscribe(data => {
         console.log("Characters from API:", data);
         this.characters = data;
+        this.loading = false;
       });
   }
 
