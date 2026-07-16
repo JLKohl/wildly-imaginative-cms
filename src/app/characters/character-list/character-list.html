@@ -1,11 +1,32 @@
 <h2>Characters</h2>
 
-@if (loading) {
-  <p class="loading">Loading characters...</p>
-}
-@else {
-  <div *ngFor="let character of characters">
-    <h3>{{ character.name }}</h3>
-    <p>{{ character.description }}</p>
-  </div>
-}
+<div class="character-grid">
+
+  @for (character of characters(); track character._id) {
+
+    <div class="character-card">
+
+      <img 
+        [src]="character.imageUrl" 
+        [alt]="character.name"
+      >
+
+      <h3>{{ character.name }}</h3>
+
+      <p><strong>Age:</strong> {{ character.age }}</p>
+
+      <p><strong>Occupation:</strong> {{ character.occupation }}</p>
+
+      <p>{{ character.description }}</p>
+
+      <a 
+        class="button"
+        [routerLink]="['/characters', character._id]">
+        View Character
+      </a>
+
+    </div>
+
+  }
+
+</div>

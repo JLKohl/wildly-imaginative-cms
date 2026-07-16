@@ -1,1 +1,15 @@
-<p>character-detail works!</p>
+@if (character()) {
+
+    <h2>{{ character()?.name }}</h2>
+  
+    <p><strong>Age:</strong> {{ character()?.age }}</p>
+  
+    <p><strong>Eye Color:</strong> {{ character()?.eyeColor }}</p>
+  
+    <p><strong>Hair Color:</strong> {{ character()?.hairColor }}</p>
+  
+    <p><strong>Occupation:</strong> {{ character()?.occupation }}</p>
+  
+    <p>{{ character()?.description }}</p>
+  
+  }
