@@ -1,0 +1,16 @@
+/* button styles */
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    opacity: 0.85;
+  }

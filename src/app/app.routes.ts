@@ -4,16 +4,16 @@ import { CharacterDetail } from './characters/character-detail/character-detail'
 import { CharacterCreate } from './characters/character-create/character-create';
 
 export const routes: Routes = [
-    { 
-        path: 'characters',
-        component: CharacterList
+    {
+        path: 'characters/create',
+        component: CharacterCreate
     },
     {
         path: 'characters/:id',
         component: CharacterDetail
     },
-    {
-        path: 'characters/create',
-        component: CharacterCreate
+    { 
+        path: 'characters',
+        component: CharacterList
     }
 ];
