@@ -12,6 +12,14 @@
   
     <p>{{ character()?.description }}</p>
 
+    <a
+    class="button"
+    [routerLink]="['/characters', character()?._id, 'edit']">
+
+    Edit Character
+
+    </a>
+
     <a class="button" routerLink="/characters">
       Back to Characters
     </a>

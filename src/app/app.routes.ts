@@ -2,11 +2,16 @@ import { Routes } from '@angular/router';
 import { CharacterList } from './characters/character-list/character-list';
 import { CharacterDetail } from './characters/character-detail/character-detail';
 import { CharacterCreate } from './characters/character-create/character-create';
+import { CharacterEdit } from './characters/character-edit/character-edit'; 
 
 export const routes: Routes = [
     {
         path: 'characters/create',
         component: CharacterCreate
+    },
+    {
+        path: 'characters/edit/:id',
+        component: CharacterEdit
     },
     {
         path: 'characters/:id',

@@ -21,4 +21,13 @@ export class CharacterService {
     return this.http.get<Character>(url);
   }
 
+  createCharacter(character: Character): Observable<Character> {
+    return this.http.post<Character>(this.apiUrl, character);
+  }
+
+  updateCharacter(id: string, character: Character): Observable<Character> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<Character>(url, character);
+  }
+
 }
