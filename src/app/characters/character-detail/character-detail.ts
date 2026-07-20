@@ -1,9 +1,8 @@
-//import angular core and router
+// import angular core and router
 import { Component, OnInit, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 
-//character model and service
+// character model and service
 import { CharacterService } from '../../services/character.service';
 import { Character } from '../../models/character';
 
@@ -22,10 +21,12 @@ export class CharacterDetail implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -34,7 +35,37 @@ export class CharacterDetail implements OnInit {
           this.character.set(data);
         });
     }
+
   }
 
+  deleteCharacter(): void {
+
+    const character = this.character();
+
+    if (!character || !character._id) {
+      return;
+    }
+
+    const confirmed = confirm(
+      `Are you sure you want to delete ${character.name}?`
+    );
+
+    if (confirmed) {
+
+      this.characterService
+        .deleteCharacter(character._id)
+        .subscribe({
+          next: () => {
+            console.log("Character deleted!");
+            this.router.navigate(['/characters']);
+          },
+          error: (err) => {
+            console.error("Delete error:", err);
+          }
+        });
+
+    }
+
+  }
 
 }

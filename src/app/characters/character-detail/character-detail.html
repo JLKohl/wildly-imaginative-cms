@@ -17,8 +17,14 @@
     class="button"
     [routerLink]="['/characters', 'edit', character()?._id]">
     Edit Character
-    
+
     </a>
+
+    <button 
+      class="button delete-button"
+      (click)="deleteCharacter()">
+      Delete Character
+    </button>
 
     <a class="button" routerLink="/characters">
       Back to Characters
