@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
@@ -16,7 +16,7 @@ import { Character } from '../../models/character';
 })
 export class CharacterEdit implements OnInit {
 
-  character: Character= {
+  character = signal<Character>({
     name: '',
     age: 0,
     eyeColor: '',
@@ -24,7 +24,7 @@ export class CharacterEdit implements OnInit {
     occupation: '',
     imageUrl: '',
     description: ''
-  };
+  });
 
   constructor(
     private route: ActivatedRoute,
@@ -35,24 +35,34 @@ export class CharacterEdit implements OnInit {
   ngOnInit(): void {
 
     const id = this.route.snapshot.paramMap.get('id');
-
+  
+    console.log("ID from route:", id);
+  
     if (id) {
       this.characterService.getCharacter(id)
-        .subscribe(data => {
-          this.character = data;
+        .subscribe({
+          next: (data) => {
+            console.log("Character received:", data);
+            this.character.set(data)
+          },
+          error: (err) => {
+            console.error("Error loading character:", err);
+          }
         });
     }
-
+  
   }
 
   updateCharacter() {
 
-    if (!this.character._id) {
+    const character = this.character();
+  
+    if (!character._id) {
       return;
     }
   
     this.characterService
-      .updateCharacter(this.character._id, this.character)
+      .updateCharacter(character._id, character)
       .subscribe({
         next: () => {
           console.log("Character updated!");

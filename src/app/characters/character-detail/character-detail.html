@@ -13,11 +13,11 @@
     <p>{{ character()?.description }}</p>
 
     <a
+
     class="button"
-    [routerLink]="['/characters', character()?._id, 'edit']">
-
+    [routerLink]="['/characters', 'edit', character()?._id]">
     Edit Character
-
+    
     </a>
 
     <a class="button" routerLink="/characters">

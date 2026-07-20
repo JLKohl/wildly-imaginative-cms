@@ -1,67 +1,72 @@
-<h2>Save Character</h2>
+<h2>Edit Character</h2>
 
 <div class="form-container">
 
-    <form (ngSubmit)="updateCharacter()">
+  <form (ngSubmit)="updateCharacter()">
 
     <label>Name:</label>
     <input 
-        type="text"
-        [(ngModel)]="character.name"
-        name="name"
+      type="text"
+      [ngModel]="character().name"
+      (ngModelChange)="character.update(c => ({ ...c, name: $event }))"
+      name="name"
     >
 
     <label>Age:</label>
     <input 
-        type="number"
-        [(ngModel)]="character.age"
-        name="age"
+      type="number"
+      [ngModel]="character().age"
+      (ngModelChange)="character.update(c => ({ ...c, age: $event }))"
+      name="age"
     >
 
     <label>Eye Color:</label>
     <input 
-        type="text"
-        [(ngModel)]="character.eyeColor"
-        name="eyeColor"
+      type="text"
+      [ngModel]="character().eyeColor"
+      (ngModelChange)="character.update(c => ({ ...c, eyeColor: $event }))"
+      name="eyeColor"
     >
 
     <label>Hair Color:</label>
     <input 
-        type="text"
-        [(ngModel)]="character.hairColor"
-        name="hairColor"
+      type="text"
+      [ngModel]="character().hairColor"
+      (ngModelChange)="character.update(c => ({ ...c, hairColor: $event }))"
+      name="hairColor"
     >
 
     <label>Occupation:</label>
     <input 
-        type="text"
-        [(ngModel)]="character.occupation"
-        name="occupation"
+      type="text"
+      [ngModel]="character().occupation"
+      (ngModelChange)="character.update(c => ({ ...c, occupation: $event }))"
+      name="occupation"
     >
 
     <label>Image URL:</label>
     <input 
-        type="text"
-        [(ngModel)]="character.imageUrl"
-        name="imageUrl"
+      type="text"
+      [ngModel]="character().imageUrl"
+      (ngModelChange)="character.update(c => ({ ...c, imageUrl: $event }))"
+      name="imageUrl"
     >
 
     <label>Description:</label>
     <textarea
-        [(ngModel)]="character.description"
-        name="description">
+      [ngModel]="character().description"
+      (ngModelChange)="character.update(c => ({ ...c, description: $event }))"
+      name="description">
     </textarea>
 
     <button type="submit">
-        Save Changes
+      Save Changes
     </button>
 
-    </form>
+  </form>
 
 </div>
 
 <a class="button" routerLink="/characters">
   Back to Characters
 </a>
-
-
